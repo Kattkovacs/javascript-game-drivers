@@ -1,0 +1,33 @@
+body {
+    background-color: #3A7734;
+}
+
+.road {
+    position: relative;
+    height: 90vh;
+    width: 25%;
+    left: 35%;
+    margin-top: 20px;;
+    background-color: #292929;
+    overflow: hidden;
+}
+
+.line{
+    position: absolute;
+    height: 150px;
+    width: 4%;
+    margin-left: 48%;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+#line_1{
+    top: -150px;
+}
+
+#line_2{
+    top: 150px;
+}
+
+#line_3{
+    top: 450px;
+}
