@@ -10,8 +10,10 @@ def index():
 
 @app.route('/game')
 def game():
-    return render_template('game.html')
+    player_name = request.args.get('player')
+    return render_template('game.html',
+                           player_name=player_name)
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
