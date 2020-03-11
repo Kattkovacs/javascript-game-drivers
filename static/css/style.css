@@ -22,17 +22,17 @@ body {
     border: yellow 1px solid;
 }
 
-#line_1{
+#line-1{
     top: -150px;
     border: white 1px solid;
 }
 
-#line_2{
+#line-2{
     top: 150px;
     border: white 1px solid;
 }
 
-#line_3{
+#line-3{
     top: 450px;
     border: white 1px solid;
 }
