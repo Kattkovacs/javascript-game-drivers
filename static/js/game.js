@@ -1,5 +1,6 @@
 let animId;
 let gameOver;
+let moveLeft;
 
 // function getStyle(selector) {
 //     const elem = document.querySelector(selector);
@@ -20,9 +21,10 @@ function myMove(line) {
 function left() {
     const elem = document.querySelector('#player');
     const style = getComputedStyle(elem);
-    if (gameOver === false && parseInt(style.left) > 0) {
-        car.css('left', parseInt(car.css('left')) - 5);
-        move_left = requestAnimationFrame(left);
+    let leftPosition = parseInt(style.left);
+    if (gameOver === false && leftPosition > 0) {
+        elem.style.left = String(leftPosition -5 ) + 'px';
+        moveLeft = requestAnimationFrame(left);
     }
 }
 
