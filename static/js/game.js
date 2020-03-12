@@ -118,13 +118,15 @@ function down() {
 
 function repeat() {
     scoreCounter ++;
+
     if (scoreCounter % 500 === 0) {
             speed++;
             lineSpeed++;
         }
-    // if (scoreCounter % 20 == 0) {
-    //         score.text = parseInt(score.text()) + 1);
-    //     }
+    if (scoreCounter % 20 == 0) {
+        let playerScore = scoreCounter / 10;
+            document.querySelector("#score").innerHTML = String(playerScore);
+        }
     carMove('#car-1');
     carMove('#car-2');
     carMove('#car-3');
