@@ -1,4 +1,8 @@
 let animId;
+const player = document.querySelector('#player');
+const car1 = document.querySelector('#car-1');
+const car2 = document.querySelector('#car-2');
+const car3 = document.querySelector('#car-3');
 let gameOver = false;
 let scoreCounter = 0;
 let score = document.querySelector('#score');
@@ -6,7 +10,7 @@ let speed = 1;
 let lineSpeed = 5;
 let moveLeft = false;
 let moveRight = false;
-let moveUP = false;
+let moveUp = false;
 let moveDown = false;
 //const player = document.querySelector('#player');
 
@@ -20,8 +24,8 @@ function keyDownHandler(e) {
             moveLeft = requestAnimationFrame(left);
         } else if (key === 39 && moveRight === false) {
             moveRight = requestAnimationFrame(right);
-        } else if (key === 38 && moveUP === false) {
-            moveUP = requestAnimationFrame(up);
+        } else if (key === 38 && moveUp === false) {
+            moveUp = requestAnimationFrame(up);
         } else if (key === 40 && moveDown === false) {
             moveDown = requestAnimationFrame(down);
         }
@@ -38,8 +42,8 @@ function keyUpHandler(e) {
                 cancelAnimationFrame(moveRight);
                 moveRight = false;
             } else if (key === 38) {
-                cancelAnimationFrame(moveUP);
-                moveUP = false;
+                cancelAnimationFrame(moveUp);
+                moveUp = false;
             } else if (key === 40) {
                 cancelAnimationFrame(moveDown);
                 moveDown = false;
@@ -80,7 +84,7 @@ function left() {
     const elem = document.querySelector('#player');
     const style = getComputedStyle(elem);
     let leftPosition = parseInt(style.left);
-    if (gameOver === false && leftPosition > 0) {
+    if (gameOver === false && leftPosition > -10) {
         elem.style.left = String(leftPosition - 5) + 'px';
         moveLeft = requestAnimationFrame(left);
     }
@@ -90,7 +94,7 @@ function right() {
     const elem = document.querySelector('#player');
     const style = getComputedStyle(elem);
     let leftPosition = parseInt(style.left);
-    if (gameOver === false && leftPosition < 300 - 70) { //road.width - car.width
+    if (gameOver === false && leftPosition < 302 - 70) { //road.width - car.width
         elem.style.left = String(leftPosition + 5) + 'px';
         moveRight = requestAnimationFrame(right);
     }
@@ -102,7 +106,7 @@ function up() {
     let topPosition = parseInt(style.top);
     if (gameOver === false && topPosition > 0) {
         elem.style.top = String(topPosition - 3) + 'px';
-        moveUP = requestAnimationFrame(up);
+        moveUp = requestAnimationFrame(up);
     }
 }
 
@@ -117,6 +121,10 @@ function down() {
 }
 
 function repeat() {
+    if (collision(player, car1) || collision(player, car2) || collision(player, car3)) {
+    stopTheGame();
+    return;
+}
     scoreCounter ++;
 
     if (scoreCounter % 500 === 0) {
@@ -125,7 +133,7 @@ function repeat() {
         }
     if (scoreCounter % 20 == 0) {
         let playerScore = scoreCounter / 10;
-            document.querySelector("#score").innerHTML = String(playerScore);
+            score.innerHTML = String(playerScore);
         }
     carMove('#car-1');
     carMove('#car-2');
@@ -134,6 +142,37 @@ function repeat() {
     lineMove('#line-2');
     lineMove('#line-3');
     animId = requestAnimationFrame(repeat);
+}
+
+
+function stopTheGame() {
+    gameOver = true;
+    cancelAnimationFrame(animId);
+    cancelAnimationFrame(moveRight);
+    cancelAnimationFrame(moveLeft);
+    cancelAnimationFrame(moveUp);
+    cancelAnimationFrame(moveDown);
+    // restart_div.slideDown();
+    // restart_btn.focus();
+    // setHighScore();
+}
+
+function collision(player, car) {
+    let x1 = player.offsetLeft;
+    let y1 = player.offsetTop;
+    let h1 = player.offsetHeight;
+    let w1 = player.offsetWidth;
+    let b1 = y1 + h1;
+    let r1 = x1 + w1;
+    let x2 = car.offsetLeft;
+    let y2 = car.offsetTop;
+    let h2 = car.offsetHeight;
+    let w2 = car.offsetWidth;
+    let b2 = y2 + h2;
+    let r2 = x2 + w2;
+
+    if (b1 < y2 || y1 > b2 || r1 < x2 || x1 > r2) return false;
+    return true;
 }
 
 function initGame() {
