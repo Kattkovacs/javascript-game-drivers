@@ -8,7 +8,8 @@
 </head>
 <body>
 <h1 name="title" >Traffic Racer</h1>
-<form action="{{ url_for('game') }}" class="player-name"  >
+<h2>Add your name here!</h2>
+<form action="{{ url_for('game') }}" class="player-name" id="user-name"  >
     <input type="text" name="player" required>
 <button type="submit">Start</button>
 </form>

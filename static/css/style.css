@@ -1,5 +1,4 @@
 body {
-    /*background-color: #3A7734;*/
     background: url("/static/img/background.jpg");
 }
 
@@ -11,7 +10,6 @@ body {
     margin-top: 20px;
     background-color: #292929;
     overflow: hidden;
-    /*border: red 1px solid;*/
 }
 
 .line{
@@ -19,27 +17,22 @@ body {
     height: 150px;
     width: 4%;
     margin-left: 48%;
-    /*background: rgba(255, 255, 255, 0.5);*/
-    /*border: yellow 1px solid;*/
     background: yellow;
 }
 
 #line-1{
     top: -150px;
     color: yellow;
-    /*border: white 1px solid;*/
 }
 
 #line-2{
     top: 150px;
     color: yellow;
-    /*border: white 1px solid;*/
 }
 
 #line-3{
     top: 450px;
     color: yellow;
-    /*border: white 1px solid;*/
 }
 
 #player {
@@ -49,7 +42,6 @@ body {
     left: 200px;
     background-size: 100%;
     top: 450px;
-    /*border: white 1px solid;*/
 }
 
 .car{
@@ -57,8 +49,6 @@ body {
     height: 100px;
     width: 55px;
     border-radius: 5px;
-    /*box-shadow: 0px 1px 8px 0px black;*/
-    /*border: brown 1px solid;*/
 }
 
 #car-1{
@@ -68,7 +58,6 @@ body {
     background-size: 100%;
     top: 0px;
     left: 38%;
-    /*border: white solid 1px;*/
 }
 
 #car-2{
@@ -119,4 +108,10 @@ h1 {
 
 .player-name {
     text-align:center;
+}
+
+h2 {
+    color: white;
+    text-align: center;
+    color: yellow;
 }
