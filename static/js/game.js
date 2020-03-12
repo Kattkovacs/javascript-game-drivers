@@ -3,6 +3,8 @@ const player = document.querySelector('#player');
 const car1 = document.querySelector('#car-1');
 const car2 = document.querySelector('#car-2');
 const car3 = document.querySelector('#car-3');
+const restartDiv = document.querySelector('#restart-div');
+const restartBtn = document.querySelector('#restart-btn');
 let gameOver = false;
 let scoreCounter = 0;
 let score = document.querySelector('#score');
@@ -12,7 +14,10 @@ let moveLeft = false;
 let moveRight = false;
 let moveUp = false;
 let moveDown = false;
-//const player = document.querySelector('#player');
+let highScore = parseInt(localStorage.getItem('high-score'));
+highScore.innerHTML = String(highScore);
+
+
 
 document.addEventListener('keydown', keyDownHandler);
 document.addEventListener('keyup', keyUpHandler);
@@ -122,19 +127,19 @@ function down() {
 
 function repeat() {
     if (collision(player, car1) || collision(player, car2) || collision(player, car3)) {
-    stopTheGame();
-    return;
-}
-    scoreCounter ++;
+        stopTheGame();
+        return;
+    }
+    scoreCounter++;
 
     if (scoreCounter % 500 === 0) {
-            speed++;
-            lineSpeed++;
-        }
+        speed++;
+        lineSpeed++;
+    }
     if (scoreCounter % 20 == 0) {
         let playerScore = scoreCounter / 10;
-            score.innerHTML = String(playerScore);
-        }
+        score.innerHTML = String(playerScore);
+    }
     carMove('#car-1');
     carMove('#car-2');
     carMove('#car-3');
@@ -142,8 +147,11 @@ function repeat() {
     lineMove('#line-2');
     lineMove('#line-3');
     animId = requestAnimationFrame(repeat);
-}
 
+    restartBtn.click(function () {
+        location.reload();
+    });
+}
 
 function stopTheGame() {
     gameOver = true;
@@ -152,9 +160,18 @@ function stopTheGame() {
     cancelAnimationFrame(moveLeft);
     cancelAnimationFrame(moveUp);
     cancelAnimationFrame(moveDown);
-    // restart_div.slideDown();
-    // restart_btn.focus();
-    // setHighScore();
+    restartDiv.slideDown();
+    restartBtn.focus();
+    setHighScore();
+}
+
+
+function setHighScore() {
+    if (highScore < score) {
+        highScore = score;
+        localStorage.setItem('high-score', highScore);
+    }
+    highScore.innerHTML = String(highScore);
 }
 
 function collision(player, car) {
