@@ -31,8 +31,8 @@ function carMove(car) {
         let carCurrentTop = parseInt(style.top);
         if (carCurrentTop > 600) { //road.height
             carCurrentTop = -300;
-            // let carLeft = parseInt(Math.random() * (300 - 70)); //road.width - car.width
-            // elem.style.left = String(carLeft) + 'px';
+            let carLeft = parseInt(Math.random() * (300 - 70)); //road.width - car.width
+            elem.style.left = String(carLeft) + 'px';
         }
         elem.style.top = String(carCurrentTop + speed) + 'px';
     }
@@ -80,7 +80,7 @@ function down() {
 function repeat() {
     scoreCounter ++;
     if (scoreCounter % 500 === 0) {
-            // speed++;
+            speed++;
             lineSpeed++;
         }
     // if (scoreCounter % 20 == 0) {
