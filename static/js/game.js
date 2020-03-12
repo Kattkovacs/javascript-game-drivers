@@ -11,6 +11,7 @@ let moveDown = false;
 //const player = document.querySelector('#player');
 
 document.addEventListener('keydown', keyDownHandler);
+document.addEventListener('keyup', keyUpHandler);
 
 function keyDownHandler(e) {
     if (gameOver === false) {
@@ -25,6 +26,25 @@ function keyDownHandler(e) {
             moveDown = requestAnimationFrame(down);
         }
     }
+}
+
+function keyUpHandler(e) {
+            if (gameOver === false) {
+            let key = e.keyCode;
+            if (key === 37) {
+                cancelAnimationFrame(moveLeft);
+                moveLeft = false;
+            } else if (key === 39) {
+                cancelAnimationFrame(moveRight);
+                moveRight = false;
+            } else if (key === 38) {
+                cancelAnimationFrame(moveUP);
+                moveUP = false;
+            } else if (key === 40) {
+                cancelAnimationFrame(moveDown);
+                moveDown = false;
+            }
+        }
 }
 
 
