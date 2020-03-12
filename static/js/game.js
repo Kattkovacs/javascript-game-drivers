@@ -8,6 +8,25 @@ let moveLeft;
 let moveRight;
 let moveUP;
 let moveDown;
+//const player = document.querySelector('#player');
+
+document.addEventListener('keydown', keyDownHandler);
+
+function keyDownHandler(e) {
+    if (gameOver === false) {
+        let key = e.keyCode;
+        if (key === 37 && moveLeft === false) {
+            moveLeft = requestAnimationFrame(left);
+        } else if (key === 39 && moveRight === false) {
+            moveRight = requestAnimationFrame(right);
+        } else if (key === 38 && moveUP === false) {
+            moveUP = requestAnimationFrame(up);
+        } else if (key === 40 && moveDown === false) {
+            moveDown = requestAnimationFrame(down);
+        }
+    }
+}
+
 
 // function getStyle(selector) {
 //     const elem = document.querySelector(selector);
