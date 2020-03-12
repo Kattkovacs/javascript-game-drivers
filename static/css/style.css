@@ -2,15 +2,15 @@ body {
     background-color: #3A7734;
 }
 
-.road {
+#road {
     position: relative;
-    height: 90vh;
-    width: 25%;
+    height: 600px;
+    width: 300px;
     left: 35%;
     margin-top: 20px;
     background-color: #292929;
-    overflow: hidden;
-    border: red 1px solid;
+    /*overflow: hidden;*/
+    /*border: red 1px solid;*/
 }
 
 .line{
@@ -19,42 +19,80 @@ body {
     width: 4%;
     margin-left: 48%;
     background: rgba(255, 255, 255, 0.5);
-    border: yellow 1px solid;
+    /*border: yellow 1px solid;*/
 }
 
 #line-1{
     top: -150px;
-    border: white 1px solid;
+    /*border: white 1px solid;*/
 }
 
 #line-2{
     top: 150px;
-    border: white 1px solid;
+    /*border: white 1px solid;*/
 }
 
 #line-3{
     top: 450px;
-    border: white 1px solid;
+    /*border: white 1px solid;*/
 }
 
 #player {
-    /*background: url("/static/img/red_car.png");*/
     position: absolute;
     background: url('/static/img/red_car.png');
     background-position: center;
-    margin-left: 60%;
+    margin-left: 200px;
     background-repeat: no-repeat;
     background-size: 100%;
-    margin-top: 70vh;
-    border: white 1px solid;
+    margin-top: 450px;
+    /*border: white 1px solid;*/
 }
-
 
 .car{
     position: absolute;
-    height: 15vh;
-    width: 5vw;
+    height: 100px;
+    width: 70px;
     border-radius: 5px;
-    ox-shadow: 0px 1px 8px 0px black;
-    border: brown 1px solid;
+    /*box-shadow: 0px 1px 8px 0px black;*/
+    /*border: brown 1px solid;*/
+}
+
+#car-1{
+    position: absolute;
+    background: url('/static/img/red_car.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    top: 0px;
+    left: 40%;
+    background-color: #292929;
+}
+#car-2{
+    background: url('/static/img/orange.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    top: -200px;
+    left: 40%;
+    background-color: #292929;
+}
+#car-3{
+    background: url('/static/img/green.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    top: -350px;
+    left: 50%;
+    background-color: #292929;
+}
+
+#score_div{
+    position: absolute;
+    margin-top: 20%;
+    margin-left: 10%;
+    font-size: 35px;
+    background-color: white;
+    color: #454545;
+    padding: 10px;
+    box-shadow: 4px 4px 0px 1px #808080;
 }
