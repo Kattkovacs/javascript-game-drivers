@@ -87,8 +87,8 @@ function repeat() {
     //         score.text = parseInt(score.text()) + 1);
     //     }
     carMove('#car-1');
-    // carMove('#car-2');
-    // carMove('#car-3');
+    carMove('#car-2');
+    carMove('#car-3');
     lineMove('#line-1');
     lineMove('#line-2');
     lineMove('#line-3');
