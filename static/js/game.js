@@ -161,7 +161,7 @@ function stopTheGame() {
     cancelAnimationFrame(moveUp);
     cancelAnimationFrame(moveDown);
     let snd = new Audio("/static/sound/carCrash.mp3");
-    // snd.play();
+    snd.play();
     restartDiv.slideDown();
     restartBtn.focus();
     setHighScore();
