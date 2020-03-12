@@ -4,10 +4,10 @@ let scoreCounter = 0;
 let score = document.querySelector('#score');
 let speed = 1;
 let lineSpeed = 5;
-let moveLeft;
-let moveRight;
-let moveUP;
-let moveDown;
+let moveLeft = false;
+let moveRight = false;
+let moveUP = false;
+let moveDown = false;
 //const player = document.querySelector('#player');
 
 document.addEventListener('keydown', keyDownHandler);
