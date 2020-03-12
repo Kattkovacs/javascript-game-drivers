@@ -7,10 +7,10 @@
     <script src="{{ url_for('static', filename='js/game.js') }}" defer></script>
 </head>
 <body>
-{{ player_name }}
+<div id="player-name"> {{ player_name }} </div>
 <div id="score-div">
-    Score: <span id="score">0</span>
-    High Score: <span id="high-score">0</span>
+    <p class="labels">Score:</p> <span id="score">0</span>
+    <p class="labels">High Score:</p> <span id="high-score">0</span>
 </div>
 <div id="road">
     <div id="line-1" class="line"></div>

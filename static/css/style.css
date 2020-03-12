@@ -1,12 +1,13 @@
 body {
-    background-color: #3A7734;
+    /*background-color: #3A7734;*/
+    background: url("/static/img/background.jpg");
 }
 
 #road {
     position: relative;
     height: 600px;
     width: 300px;
-    left: 35%;
+    left: 43%;
     margin-top: 20px;
     background-color: #292929;
     overflow: hidden;
@@ -18,22 +19,26 @@ body {
     height: 150px;
     width: 4%;
     margin-left: 48%;
-    background: rgba(255, 255, 255, 0.5);
+    /*background: rgba(255, 255, 255, 0.5);*/
     /*border: yellow 1px solid;*/
+    background: yellow;
 }
 
 #line-1{
     top: -150px;
+    color: yellow;
     /*border: white 1px solid;*/
 }
 
 #line-2{
     top: 150px;
+    color: yellow;
     /*border: white 1px solid;*/
 }
 
 #line-3{
     top: 450px;
+    color: yellow;
     /*border: white 1px solid;*/
 }
 
@@ -84,13 +89,34 @@ body {
     left: 13%;
 }
 
-#score_div{
-    position: absolute;
-    margin-top: 20%;
-    margin-left: 10%;
-    font-size: 35px;
-    background-color: white;
-    color: #454545;
-    padding: 10px;
-    box-shadow: 4px 4px 0px 1px #808080;
+#score{
+    font-size: x-large;
+    color: white;
+}
+
+
+#high-score{
+    font-size: x-large;
+    color: white;
+}
+
+
+#player-name {
+    font-size: 50px;
+    color: white;
+}
+
+.labels {
+    font-size: x-large;
+    color: white;
+}
+
+h1 {
+    font-size: 100px;
+    text-align: center;
+    color: white;
+}
+
+.player-name {
+    text-align:center;
 }
