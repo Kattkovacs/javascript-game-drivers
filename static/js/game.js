@@ -4,7 +4,8 @@ const car1 = document.querySelector('#car-1');
 const car2 = document.querySelector('#car-2');
 const car3 = document.querySelector('#car-3');
 const restartDiv = document.querySelector('#restart-div');
-const restartBtn = document.querySelector('#restart-btn');
+const restartBtn = document.querySelector('#restart');
+let audio1 = document.getElementById("audio");
 let gameOver = false;
 let scoreCounter = 0;
 let score = document.querySelector('#score');
@@ -14,13 +15,19 @@ let moveLeft = false;
 let moveRight = false;
 let moveUp = false;
 let moveDown = false;
-let highScore = parseInt(localStorage.getItem('high-score'));
-highScore.innerHTML = String(highScore);
+let highScore = document.querySelector(('#high-score'))
+
+// if (!(window.localStorage.getItem('high-score'))) {
+//     window.localStorage.setItem('high-score', '0');
+// }
+// let highScore = parseInt(window.localStorage.getItem('high-score'));
+// document.querySelector('#high-score').innerHTML = String(highScore);
 
 
 
 document.addEventListener('keydown', keyDownHandler);
 document.addEventListener('keyup', keyUpHandler);
+restartBtn.addEventListener('click', gameRestart);
 
 function keyDownHandler(e) {
     if (gameOver === false) {
@@ -56,13 +63,6 @@ function keyUpHandler(e) {
         }
 }
 
-
-// function getStyle(selector) {
-//     const elem = document.querySelector(selector);
-//     const style = getComputedStyle(elem);
-//     return style;
-// }
-
 function lineMove(line) {
     const elem = document.querySelector(line);
     const style = getComputedStyle(elem);
@@ -79,7 +79,7 @@ function carMove(car) {
         let carCurrentTop = parseInt(style.top);
         if (carCurrentTop > 600) { //road.height
             carCurrentTop = -300;
-            let carLeft = parseInt(Math.random() * (300 - 70)); //road.width - car.width
+            let carLeft = parseInt(Math.random() * (300 - 55)); //road.width - car.width
             elem.style.left = String(carLeft) + 'px';
         }
         elem.style.top = String(carCurrentTop + speed) + 'px';
@@ -89,7 +89,7 @@ function left() {
     const elem = document.querySelector('#player');
     const style = getComputedStyle(elem);
     let leftPosition = parseInt(style.left);
-    if (gameOver === false && leftPosition > -10) {
+    if (gameOver === false && leftPosition > 0) {
         elem.style.left = String(leftPosition - 5) + 'px';
         moveLeft = requestAnimationFrame(left);
     }
@@ -99,7 +99,7 @@ function right() {
     const elem = document.querySelector('#player');
     const style = getComputedStyle(elem);
     let leftPosition = parseInt(style.left);
-    if (gameOver === false && leftPosition < 302 - 70) { //road.width - car.width
+    if (gameOver === false && leftPosition < 300 - 55) { //road.width - car.width
         elem.style.left = String(leftPosition + 5) + 'px';
         moveRight = requestAnimationFrame(right);
     }
@@ -136,9 +136,11 @@ function repeat() {
         speed++;
         lineSpeed++;
     }
-    if (scoreCounter % 20 == 0) {
-        let playerScore = scoreCounter / 10;
-        score.innerHTML = String(playerScore);
+    if (scoreCounter % 10 === 0) {
+        score.innerHTML = String(scoreCounter / 10);
+    }
+    if (scoreCounter / 10 > document.querySelector('#high-score')) {
+        highScore.innerHTML = String(scoreCounter / 10);
     }
     carMove('#car-1');
     carMove('#car-2');
@@ -147,10 +149,11 @@ function repeat() {
     lineMove('#line-2');
     lineMove('#line-3');
     animId = requestAnimationFrame(repeat);
+}
 
-    restartBtn.click(function () {
-        location.reload();
-    });
+function gameRestart() {
+    location.reload();
+    // setHighScore();
 }
 
 function stopTheGame() {
@@ -160,21 +163,21 @@ function stopTheGame() {
     cancelAnimationFrame(moveLeft);
     cancelAnimationFrame(moveUp);
     cancelAnimationFrame(moveDown);
-    let snd = new Audio("/static/sound/carCrash.mp3");
-    snd.play();
-    restartDiv.slideDown();
+    // restartDiv.slideDown();
     restartBtn.focus();
-    setHighScore();
 }
 
-
-function setHighScore() {
-    if (highScore < score) {
-        highScore = score;
-        localStorage.setItem('high-score', highScore);
-    }
-    highScore.innerHTML = String(highScore);
+function sound(audio) {
+    audio.play();
 }
+
+// function setHighScore() {
+//     if (document.querySelector('#high-score') < score) {
+//         highScore = score;
+//         localStorage.setItem('high-score', highScore);
+//     }
+//     document.querySelector('#high-score').innerHTML = String(highScore);
+// }
 
 function collision(player, car) {
     let x1 = player.offsetLeft;

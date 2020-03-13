@@ -2,14 +2,24 @@ body {
     background: url("/static/img/background.jpg");
 }
 
+h1 {
+    text-align: center;
+    color: white;
+}
+
+form {
+    text-align: center;
+}
+
 #road {
     position: relative;
     height: 600px;
     width: 300px;
-    left: 43%;
-    margin-top: 20px;
+    left: 40%;
+    margin-top: 5px;
     background-color: #292929;
     overflow: hidden;
+    box-shadow: 0px 1px 30px 15px black;
 }
 
 .line{
@@ -17,22 +27,22 @@ body {
     height: 150px;
     width: 4%;
     margin-left: 48%;
-    background: yellow;
+    background: #fffc40;
 }
 
 #line-1{
     top: -150px;
-    color: yellow;
+    color: #fffc40;
 }
 
 #line-2{
     top: 150px;
-    color: yellow;
+    color: #fffc40;
 }
 
 #line-3{
     top: 450px;
-    color: yellow;
+    color: #fffc40;
 }
 
 #player {
@@ -77,41 +87,46 @@ body {
     top: -500px;
     left: 13%;
 }
-
-#score{
-    font-size: x-large;
+#restart-div {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: #292929;
     color: white;
-}
-
-
-#high-score{
-    font-size: x-large;
-    color: white;
-}
-
-
-#player-name {
-    font-size: 50px;
-    color: white;
-}
-
-.labels {
-    font-size: x-large;
-    color: white;
-}
-
-h1 {
-    font-size: 100px;
+    font-family: sans-serif;
+    font-size: 40px;
     text-align: center;
-    color: white;
+    display: none;
 }
 
-.player-name {
-    text-align:center;
-}
-
-h2 {
+#restart {
+    border: none;
+    padding: 25px;
     color: white;
-    text-align: center;
-    color: yellow;
+    background-color: #8a64ff;
+    font-size: 30px;
+    margin-top: 25%;
+    box-shadow: 0px 0px 30px -10px white;
+    border-radius: 10px;
+}
+.small-text{
+    font-size: 15px;
+}
+#score-div{
+    position: absolute;
+    margin-top: 0%;
+    margin-left: 0%;
+    font-size: 30px;
+    font-family: 'Ubuntu', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', sans-serif;
+    background-color: black;
+    opacity: 60%;
+    color: white;
+    padding: 10px;
+    box-shadow: 0px 1px 8px 8px black;
+    border-radius: 10px;
+}
+#help{
+	text-align: center;
+    font-size: large;
+    padding-top: 0;
 }

@@ -7,10 +7,9 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-<h1 name="title" >Traffic Racer</h1>
-<h2>Add your name here!</h2>
+<h1>TRAFFIC RACER</h1>
 <form action="{{ url_for('game') }}" class="player-name" id="user-name"  >
-    <input type="text" name="player" required>
+    <input type="text" name="player" required placeholder="Enter Your name">
 <button type="submit">Start</button>
 </form>
 </body>

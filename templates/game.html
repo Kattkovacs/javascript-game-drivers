@@ -7,27 +7,27 @@
     <script src="{{ url_for('static', filename='js/game.js') }}" defer></script>
 </head>
 <body>
-<div id="player-name"> {{ player_name }} </div>
-<div id="score-div">
-    <p class="labels">Score: <span id="score">0</span> High Score: <span id="high-score">0</span></p>
-{#    <p class="labels">High Score:</p> <span id="high-score">0</span>#}
-</div>
-<div id="road">
-    <div id="line-1" class="line"></div>
-    <div id="line-2" class="line"></div>
-    <div id="line-3" class="line"></div>
+    <div id="score-div">
+        <h3>TRAFFIC RACER</h3><br>
+        <p id="help">Controls: Right, Left, Up & Down arrow keys.</p><br>
+        <p>Hello {{ player_name }}</p>
+        Score: <span id="score">0</span>
+        High Score: <span id="high-score">0</span><br>
+        <button id="restart">
+            START<br>
+            <small class="small-text">(press Enter)</small>
+        </button>
+    </div>
+    <div id="road">
+        <div id="line-1" class="line"></div>
+        <div id="line-2" class="line"></div>
+        <div id="line-3" class="line"></div>
 
-    <div id="player" class="car"></div>
-    <div id="car-1" class="car"></div>
-    <div id="car-2" class="car"></div>
-    <div id="car-3" class="car"></div>
-</div>
-<div id="restart-div">
-    <button id="restart">
-        Restart<br>
-    </button>
-</div>
-
-
+        <div id="player" class="car"></div>
+        <div id="car-1" class="car"></div>
+        <div id="car-2" class="car"></div>
+        <div id="car-3" class="car"></div>
+    </div>
+<audio id="audio" src="/static/sound/carCrash.mp3" type="audio/mpg"></audio>
 </body>
 </html>
