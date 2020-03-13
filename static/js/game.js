@@ -5,7 +5,8 @@ const car2 = document.querySelector('#car-2');
 const car3 = document.querySelector('#car-3');
 const restartDiv = document.querySelector('#restart-div');
 const restartBtn = document.querySelector('#restart');
-let audio1 = document.getElementById("audio");
+let audio1 = document.getElementById("audio1");
+let audio2 = document.getElementById("audio2");
 let gameOver = false;
 let scoreCounter = 0;
 let score = document.querySelector('#score');
@@ -122,9 +123,13 @@ function down() {
 
 function repeat() {
     if (collision(player, car1) || collision(player, car2) || collision(player, car3)) {
+        stop(audio2);
+        sound(audio1);
         stopTheGame();
         return;
     }
+
+    sound(audio2);
     scoreCounter++;
 
     if (scoreCounter % 500 === 0) {
@@ -162,6 +167,10 @@ function stopTheGame() {
 
 function sound(audio) {
     audio.play();
+}
+
+function stop(audio) {
+    audio.pause();
 }
 
 function setHighScore() {
