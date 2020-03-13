@@ -15,15 +15,7 @@ let moveLeft = false;
 let moveRight = false;
 let moveUp = false;
 let moveDown = false;
-let highScore = document.querySelector(('#high-score'))
-
-// if (!(window.localStorage.getItem('high-score'))) {
-//     window.localStorage.setItem('high-score', '0');
-// }
-// let highScore = parseInt(window.localStorage.getItem('high-score'));
-// document.querySelector('#high-score').innerHTML = String(highScore);
-
-
+document.querySelector('#high-score').innerHTML = localStorage.highScore;
 
 document.addEventListener('keydown', keyDownHandler);
 document.addEventListener('keyup', keyUpHandler);
@@ -139,9 +131,7 @@ function repeat() {
     if (scoreCounter % 10 === 0) {
         score.innerHTML = String(scoreCounter / 10);
     }
-    if (scoreCounter / 10 > document.querySelector('#high-score')) {
-        highScore.innerHTML = String(scoreCounter / 10);
-    }
+
     carMove('#car-1');
     carMove('#car-2');
     carMove('#car-3');
@@ -153,7 +143,7 @@ function repeat() {
 
 function gameRestart() {
     location.reload();
-    // setHighScore();
+    setHighScore();
 }
 
 function stopTheGame() {
@@ -171,13 +161,12 @@ function sound(audio) {
     audio.play();
 }
 
-// function setHighScore() {
-//     if (document.querySelector('#high-score') < score) {
-//         highScore = score;
-//         localStorage.setItem('high-score', highScore);
-//     }
-//     document.querySelector('#high-score').innerHTML = String(highScore);
-// }
+function setHighScore() {
+    if (Number(localStorage.highScore) < scoreCounter / 10) {
+        localStorage.highScore = Math.floor(scoreCounter / 10);
+        document.querySelector('#high-score').innerHTML = localStorage.highScore;
+    }
+}
 
 function collision(player, car) {
     let x1 = player.offsetLeft;
