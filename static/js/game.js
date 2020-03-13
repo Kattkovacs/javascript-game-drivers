@@ -15,6 +15,9 @@ let moveLeft = false;
 let moveRight = false;
 let moveUp = false;
 let moveDown = false;
+if (!localStorage.highScore) {
+    localStorage.highScore = 0;
+}
 document.querySelector('#high-score').innerHTML = localStorage.highScore;
 
 document.addEventListener('keydown', keyDownHandler);
