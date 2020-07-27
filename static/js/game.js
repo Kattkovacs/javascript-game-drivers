@@ -156,7 +156,7 @@ function stopTheGame() {
     cancelAnimationFrame(moveLeft);
     cancelAnimationFrame(moveUp);
     cancelAnimationFrame(moveDown);
-    // restartDiv.slideDown();
+    // resartDiv.slideDown();
     restartBtn.focus();
 }
 
